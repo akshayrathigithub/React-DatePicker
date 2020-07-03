@@ -1,0 +1,53 @@
+#Calendar{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ContentWrapper{
+    width: 25%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.Header{
+    width: 100%;
+    height: 22%;
+    background-color: #6200ee;
+}
+.Body{
+    width: 100%;
+    height: 70%;
+    background-color: #f2f2f2;
+}
+.Footer{
+    width: 100%;
+    height: 8%;
+    background-color: red;
+}
+#Header_Heading{
+    width: 100%;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px 0px 0px 8%;
+    color: #f2f2f2;
+    font-weight: 600;
+}
+#Header_Footer{
+    width: 100%;
+    margin-top: 13%;
+    display: flex;
+    flex-direction: row;
+}
+#Header_Footer_Date{
+    font-size: 38px;
+    color: #fff;
+    margin-left: 8%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#Header_Footer_Edit{
+    font-size: 30px;
+    color: #fff;
+    margin-left: 18%;
+}
