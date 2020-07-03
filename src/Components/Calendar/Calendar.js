@@ -13,7 +13,7 @@ export default function Calendar() {
                             <p>Mon, July 20</p>
                         </div>
                         <div id="Header_Footer_Edit">
-                            <p>L</p>
+                        <i class="fas fa-pen"></i>
                         </div>
                     </div>
                 </div>
