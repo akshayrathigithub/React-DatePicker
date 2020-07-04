@@ -1,108 +1,134 @@
-#Calendar{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#Calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.ContentWrapper{
-    width: 50%;
-    height: 85%;
-    display: flex;
-    flex-direction: column;
+
+.ContentWrapper {
+  width: 50%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
-.Header{
-    width: 100%;
-    height: 22%;
-    background-color: #6200ee;
+
+.Header {
+  width: 100%;
+  height: 22%;
+  background-color: #6200ee;
 }
-.Body{
-    width: 100%;
-    height: 70%;
-    background-color: #f2f2f2;
+
+.BodyWrapper {
+  width: 100%;
+  height: 70%;
+  position: relative;
 }
-.Body_Header{
-    width: 100%;
-    height: 8%;
-    display: flex;
-    align-items: center;
-    padding-top: 8px;
+.Body {
+  width: 100%;
+  height: 100%;
+  background-color: #f2f2f2;
+  position: absolute;
+  transform: translate3d(0%, 0%, 0px);
 }
-.Body_Header_Date{
-    margin-left: 25px;
-    margin-right: 15px;
+
+.Body_Header {
+  width: 100%;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
 }
-.Body_Header_DropDown{
-    font-size: 15px;
-    padding-top: 2px;
+
+.Body_Header_Date {
+  margin-left: 25px;
+  margin-right: 15px;
 }
-.Body_Header_Left{
-    margin-left: 35%;
-    font-size: 18px;
+
+.Body_Header_DropDown {
+  font-size: 15px;
+  padding-top: 2px;
 }
-.Body_Header_Right{
-    margin-left: 40px;
-    font-size: 18px;
+
+.Body_Header_Left {
+  margin-left: 35%;
+  font-size: 18px;
 }
-.Body_Days{
-    width: 100%;
-    height: 92%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.4rem;
+
+.Body_Header_Right {
+  margin-left: 40px;
+  font-size: 18px;
 }
-.Body_Days div{
-    width: calc(100% / 7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.Body_Days {
+  width: 100%;
+  height: 92%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.4rem;
 }
-.Footer{
-    width: 100%;
-    height: 8%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
+
+.Body_Days div {
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.Footer_CancelBtn{
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    color: #6200ee;
-    cursor: pointer;
+
+.Footer {
+  position: relative;
+  width: 100%;
+  height: 8%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
 }
-.Footer_OkBtn{
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-    color: #6200ee;
-    margin-right: 25px;
-    margin-left: 35px;
-    cursor: pointer;
+
+.Footer_CancelBtn {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: #6200ee;
+  cursor: pointer;
 }
-#Header_Heading{
-    width: 100%;
-    font-size: 11px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 15px 0px 0px 8%;
-    color: #f2f2f2;
-    font-weight: 600;
+
+.Footer_OkBtn {
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  color: #6200ee;
+  margin-right: 25px;
+  margin-left: 35px;
+  cursor: pointer;
 }
-#Header_Footer{
-    width: 100%;
-    margin-top: 13%;
-    display: flex;
-    flex-direction: row;
+
+#Header_Heading {
+  width: 100%;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 15px 0px 0px 8%;
+  color: #f2f2f2;
+  font-weight: 600;
 }
-#Header_Footer_Date{
-    font-size: 38px;
-    color: #fff;
-    margin-left: 8%;
-    font-family: Arial, Helvetica, sans-serif;
+
+#Header_Footer {
+  width: 100%;
+  margin-top: 13%;
+  display: flex;
+  flex-direction: row;
 }
-#Header_Footer_Edit{
-    font-size: 30px;
-    color: #fff;
-    margin-left: 18%;
+
+#Header_Footer_Date {
+  font-size: 38px;
+  color: #fff;
+  margin-left: 8%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#Header_Footer_Edit {
+  font-size: 30px;
+  color: #fff;
+  margin-left: 18%;
 }
