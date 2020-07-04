@@ -19,12 +19,39 @@
 .Body{
     width: 100%;
     height: 70%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.2rem;
     background-color: #f2f2f2;
 }
-.Body div{
+.Body_Header{
+    width: 100%;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+}
+.Body_Header_Date{
+    margin-left: 25px;
+    margin-right: 15px;
+}
+.Body_Header_DropDown{
+    font-size: 15px;
+    padding-top: 2px;
+}
+.Body_Header_Left{
+    margin-left: 35%;
+    font-size: 18px;
+}
+.Body_Header_Right{
+    margin-left: 40px;
+    font-size: 18px;
+}
+.Body_Days{
+    width: 100%;
+    height: 92%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.4rem;
+}
+.Body_Days div{
     width: calc(100% / 7);
     display: flex;
     justify-content: center;
@@ -33,7 +60,26 @@
 .Footer{
     width: 100%;
     height: 8%;
-    background-color: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+.Footer_CancelBtn{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: #6200ee;
+    cursor: pointer;
+}
+.Footer_OkBtn{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: #6200ee;
+    margin-right: 25px;
+    margin-left: 35px;
+    cursor: pointer;
 }
 #Header_Heading{
     width: 100%;
