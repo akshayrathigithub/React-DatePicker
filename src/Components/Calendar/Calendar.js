@@ -18,6 +18,16 @@ export default function Calendar() {
           </div>
         </div>
         <div className="Body">
+        <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
+          <div>Sun</div>
+          <div>28</div>
+          <div>29</div>
+          <div>30</div>
           <div>1</div>
           <div>2</div>
           <div>3</div>
@@ -49,6 +59,7 @@ export default function Calendar() {
           <div>29</div>
           <div>30</div>
           <div>31</div>
+          <div>1</div>
         </div>
         <div className="Footer"></div>
       </div>
