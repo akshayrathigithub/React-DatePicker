@@ -3,13 +3,13 @@ import "./Calendar.style.css"
 import styled from "styled-components"
 
 export default function Calendar() {
-  const BodyWrapper = useRef(null)
+  const Body = useRef(null)
   const [Direction, setDirection] = useState(false)
   const [EditWindow, setEditWindow] = useState(false)
   const [selectedDate, setSelectedDate] = useState("")
 
   const Slide = (action) => {
-    let slider = BodyWrapper.current
+    let slider = Body.current.firstElementChild
     console.log(Direction)
     if (action === "Forward") {
       slider.style.transform = "translate3d(-60%, 0%, 0px)"
@@ -23,10 +23,19 @@ export default function Calendar() {
     setSelectedDate(e.target.value)
   }
   const EditCalled = () => {
+    let slider = Body.current.firstElementChild
+    if (!EditWindow) {
+      slider.style.transition = "transform 0.8s ease-in-ou"
+      slider.style.transform = "translate3d(0%, 0%, 0px)"
+    } else {
+      slider.style.transition = "none"
+      slider.style.transform = "translate3d(-40%, 0%, 0px)"
+      console.log(123)
+    }
     setEditWindow(!EditWindow)
   }
   const transitionChange = () => {
-    let slider = BodyWrapper.current
+    let slider = Body.current.firstElementChild
     if (Direction) {
       slider.appendChild(slider.firstElementChild)
     } else {
@@ -54,7 +63,7 @@ export default function Calendar() {
             </div>
           </div>
         </div>
-        <Body className="Body" Height = {EditWindow ? 16 : 70}>
+        <BodyDiv Height={EditWindow ? '16' : '70'} ref={Body}>
           {EditWindow ? (
             <div className="ManualDate">
               <div className="ManualDateWrapper">
@@ -72,7 +81,7 @@ export default function Calendar() {
               </div>
             </div>
           ) : (
-            <div className="BodyWrapper" onTransitionEnd={transitionChange} ref={BodyWrapper}>
+            <div className="BodyWrapper" onTransitionEnd={transitionChange}>
               <div className="BodyChild">
                 <div className="Body_Header">
                   <div className="Body_Header_Date">
@@ -355,7 +364,7 @@ export default function Calendar() {
               </div>
             </div>
           )}
-        </Body>
+        </BodyDiv>
         <div className="Footer">
           <div className="Footer_CancelBtn">
             <p>CANCEL</p>
@@ -368,9 +377,10 @@ export default function Calendar() {
     </div>
   )
 }
-const Body = styled.div`
+
+const BodyDiv = styled.div`
   width: 100%;
-  height: ${props => props.Height}%; /* 70% 16% */
+  height: ${(props) => props.Height}%;
   position: relative;
   overflow: hidden;
   transition: height 0.1s ease-in-out;
