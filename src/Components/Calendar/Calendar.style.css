@@ -25,13 +25,14 @@
   width: 100%;
   height: 70%;
   position: relative;
+  overflow: hidden;
 }
 .BodyWrapper {
   width: 500%;
   height: 100%;
   background-color: #f2f2f2;
   position: absolute;
-  transform: translate3d(0%, 0%, 0px);
+  transform: translate3d(-40%, 0%, 0px);
   transition: transform 0.8s ease-in-out;
   display: flex;
   flex-direction: row;
@@ -62,11 +63,13 @@
 .Body_Header_Left {
   margin-left: 35%;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .Body_Header_Right {
   margin-left: 40px;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .Body_Days {
