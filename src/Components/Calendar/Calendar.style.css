@@ -21,11 +21,46 @@
   background-color: #6200ee;
 }
 
-.Body {
+.ManualDate{
   width: 100%;
-  height: 70%;
-  position: relative;
-  overflow: hidden;
+  height: 100%;
+  max-height: 8rem;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ManualDateWrapper{
+  background-color: #ededed;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border-bottom: solid 3.5px #6200ee;
+}
+#ManualDate_Label{
+  width: 90%;
+  height: 1rem;
+  color: #6200ee;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  margin: 12px 0px 0px 20px;
+}
+#ManualDate_Input{
+  width: 90%;
+  height: 3rem;
+  margin: 0px 0px 0px 20px;
+}
+#ManualDate_Input input{
+  border-style: none;
+  width: 100%;
+  height: 2rem;
+  font-size: 18px;
+  background-color: #ededed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#ManualDate_Input input::placeholder{
+  font-size: 18px;
 }
 .BodyWrapper {
   width: 500%;
@@ -142,4 +177,5 @@
   font-size: 30px;
   color: #fff;
   margin-left: 18%;
+  cursor: pointer;
 }
