@@ -25,11 +25,17 @@ export default function Calendar() {
   const EditCalled = () => {
     let slider = Body.current.firstElementChild
     if (!EditWindow) {
-      slider.style.transition = "transform 0.8s ease-in-ou"
+      slider.style.transition = "none"
       slider.style.transform = "translate3d(0%, 0%, 0px)"
+      setTimeout(() => {
+        slider.style.transition = "transform 0.8s ease-in-out"
+      },3)
     } else {
       slider.style.transition = "none"
       slider.style.transform = "translate3d(-40%, 0%, 0px)"
+      setTimeout(() => {
+        slider.style.transition = "transform 0.8s ease-in-out"
+      },3)
       console.log(123)
     }
     setEditWindow(!EditWindow)
