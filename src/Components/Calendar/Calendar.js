@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import "./Calendar.style.css"
 import styled from "styled-components"
 
@@ -7,6 +7,8 @@ export default function Calendar() {
   const [Direction, setDirection] = useState(false)
   const [EditWindow, setEditWindow] = useState(false)
   const [selectedDate, setSelectedDate] = useState("")
+  const [LastDate, setLastDate] = useState(31)
+  const [StartingDayInd, setStartingDayInd] = useState(0)
   const Months = [
     "January",
     "February",
@@ -21,9 +23,21 @@ export default function Calendar() {
     "November",
     "December",
   ]
+  const DateMethod = () => {
+    let todayDate = new Date()
+    todayDate.setDate(1)
+    let MonthInd = todayDate.getMonth()
+    let LastDate = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0).getDate()
+    setLastDate(LastDate)
+    let StartingDay = todayDate.getDay()
+    setStartingDayInd(StartingDay)
+    console.log(MonthInd)
+  }
 
-  let todayDate = new Date()
-  console.log(todayDate)
+  useEffect(() => {
+    DateMethod()
+  }, [])
+
   const Slide = (action) => {
     let slider = Body.current.firstElementChild
     if (action === "Forward") {
@@ -63,7 +77,6 @@ export default function Calendar() {
       slider.style.transition = "transform 0.8s ease-in-out"
     })
   }
-  console.log("Hello")
   return (
     <div id="Calendar">
       <div className="ContentWrapper">
@@ -99,7 +112,7 @@ export default function Calendar() {
             </div>
           ) : (
             <div className="BodyWrapper" onTransitionEnd={transitionChange}>
-              {[...Array(5)].map((child, ind)=>{
+              {[...Array(5)].map((child, ind) => {
                 return (
                   <div className="BodyChild" key={ind}>
                     <div className="Body_Header">
@@ -117,15 +130,18 @@ export default function Calendar() {
                       </div>
                     </div>
                     <div className="Body_Days">
+                      <div>Sun</div>
                       <div>Mon</div>
                       <div>Tue</div>
                       <div>Wed</div>
                       <div>Thu</div>
                       <div>Fri</div>
                       <div>Sat</div>
-                      <div>Sun</div>
-                      {[...Array(30)].map((days, i) =>{
-                        return(<div key={i}>{i+1}</div>)
+                      {[...Array(StartingDayInd)].map((days, i) => {
+                        return <div key={i}></div>
+                      })}
+                      {[...Array(LastDate)].map((days, i) => {
+                        return <div key={i}>{i + 1}</div>
                       })}
                     </div>
                   </div>
