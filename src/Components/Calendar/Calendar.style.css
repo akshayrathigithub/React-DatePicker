@@ -97,7 +97,11 @@
   justify-content: center;
   align-items: center;
   border-radius: 25px;
+  cursor: pointer;
+}
+.Year-Active {
   background-color: #6200ee;
+  color: #fff;
 }
 .BodyChild {
   width: 100%;
@@ -120,6 +124,7 @@
 .Body_Header_DropDown {
   font-size: 15px;
   padding-top: 2px;
+  cursor: pointer;
 }
 
 .Body_Header_Left {
@@ -160,17 +165,7 @@
   justify-content: center;
   align-items: center;
 }
-.day-active {
-  width: 60%;
-  height: 60%;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #6200ee;
-  color: #fff;
-  cursor: pointer;
-}
+
 .day {
   width: 90%;
   height: 90%;
@@ -179,6 +174,10 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+.day-active {
+  background-color: #6200ee;
+  color: #fff;
 }
 .Footer {
   position: relative;

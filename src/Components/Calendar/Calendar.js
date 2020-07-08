@@ -9,7 +9,7 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState("")
   const [MonthsInfo, setMonthsInfo] = useState([])
   const [CurrentMonthInd, setCurrentMonthInd] = useState(new Date().getMonth() - 2)
-  const [MonthsList, setMonthsList] = useState(true)
+  const [MonthsList, setMonthsList] = useState(false)
   const Months = [
     "January",
     "February",
@@ -93,6 +93,20 @@ export default function Calendar() {
   const Day = (e, Id) => {
     console.log(e.target, Id)
   }
+  const YearSelection = (e) => {
+    let slider = Body.current.firstElementChild
+    slider.style.transition = "none"
+    if (!MonthsList) {
+      slider.style.transform = "translate3d(0%, 0%, 0px)"
+    } else {
+      slider.style.transform = "translate3d(-40%, 0%, 0px)"
+    }
+    setMonthsList(!MonthsList)
+    setTimeout(() => {
+      slider.style.transition = "transform 0.8s ease-in-out"
+    })
+    console.log(e.target)
+  }
   return (
     <div id="Calendar">
       <div className="ContentWrapper">
@@ -131,7 +145,12 @@ export default function Calendar() {
               {[...Array(201)].map((day, i) => {
                 return (
                   <div key={i} className="Years">
-                    <div className="Year">
+                    <div
+                      onClick={YearSelection}
+                      className={
+                        new Date().getFullYear() === 1900 + i ? "Year Year-Active" : "Year"
+                      }
+                    >
                       <p>{1900 + i}</p>
                     </div>
                   </div>
@@ -150,7 +169,7 @@ export default function Calendar() {
                         </p>
                       </div>
                       <div className="Body_Header_DropDown">
-                        <i className="fas fa-chevron-down"></i>
+                        <i onClick={YearSelection} className="fas fa-chevron-down"></i>
                       </div>
                       <div onClick={() => Slide("Backward")} className="Body_Header_Left">
                         <i className="fas fa-chevron-left"></i>
@@ -178,7 +197,9 @@ export default function Calendar() {
                                 Day(e, i + 1)
                               }}
                               className={
-                                child.Active && i === new Date().getDate() ? "day-active" : "day"
+                                child.Active && i === new Date().getDate()
+                                  ? "day day-active"
+                                  : "day"
                               }
                             >
                               <p>{i + 1}</p>
