@@ -7,8 +7,8 @@ export default function Calendar() {
   const [Direction, setDirection] = useState(false)
   const [EditWindow, setEditWindow] = useState(false)
   const [selectedDate, setSelectedDate] = useState("")
-  const [LastDate, setLastDate] = useState(31)
-  const [StartingDayInd, setStartingDayInd] = useState(0)
+  const [MonthsInfo, setMonthsInfo] = useState([])
+  const [CurrentMonthInd, setCurrentMonthInd] = useState(new Date().getMonth() - 2)
   const Months = [
     "January",
     "February",
@@ -23,19 +23,26 @@ export default function Calendar() {
     "November",
     "December",
   ]
-  const DateMethod = () => {
-    let todayDate = new Date()
-    todayDate.setDate(1)
-    let MonthInd = todayDate.getMonth()
-    let LastDate = new Date(todayDate.getFullYear(), todayDate.getMonth() + 1, 0).getDate()
-    setLastDate(LastDate)
-    let StartingDay = todayDate.getDay()
-    setStartingDayInd(StartingDay)
-    console.log(MonthInd)
+  const DateMethod = (Ind) => {
+    let monthsinfo = []
+    let Index = CurrentMonthInd + Ind
+    for (let i = 0; i < 5; i++) {
+      let todayDate = new Date()
+      todayDate.setMonth(Index + i)
+      todayDate.setDate(1)
+      let LastDate = new Date(todayDate.getFullYear(), Index + i + 1, 0).getDate()
+      let StartingDay = todayDate.getDay()
+      let MonthInd = todayDate.getMonth()
+      let Year = todayDate.getFullYear()
+      console.log(LastDate, StartingDay, MonthInd, Year)
+      monthsinfo.push({ LastDate, StartingDay, MonthInd, Year })
+    }
+    setMonthsInfo([...monthsinfo])
+    setCurrentMonthInd(Index)
   }
 
   useEffect(() => {
-    DateMethod()
+    DateMethod(0)
   }, [])
 
   const Slide = (action) => {
@@ -67,9 +74,9 @@ export default function Calendar() {
   const transitionChange = () => {
     let slider = Body.current.firstElementChild
     if (Direction) {
-      slider.appendChild(slider.firstElementChild)
+      DateMethod(1)
     } else {
-      slider.prepend(slider.lastElementChild)
+      DateMethod(-1)
     }
     slider.style.transition = "none"
     slider.style.transform = "translate3d(-40%, 0%, 0px)"
@@ -112,12 +119,14 @@ export default function Calendar() {
             </div>
           ) : (
             <div className="BodyWrapper" onTransitionEnd={transitionChange}>
-              {[...Array(5)].map((child, ind) => {
+              {MonthsInfo.map((child, ind) => {
                 return (
                   <div className="BodyChild" key={ind}>
                     <div className="Body_Header">
                       <div className="Body_Header_Date">
-                        <p>{} 1979</p>
+                        <p>
+                          {Months[child.MonthInd]} {child.Year}
+                        </p>
                       </div>
                       <div className="Body_Header_DropDown">
                         <i className="fas fa-chevron-down"></i>
@@ -137,10 +146,10 @@ export default function Calendar() {
                       <div>Thu</div>
                       <div>Fri</div>
                       <div>Sat</div>
-                      {[...Array(StartingDayInd)].map((days, i) => {
+                      {[...Array(child.StartingDay)].map((days, i) => {
                         return <div key={i}></div>
                       })}
-                      {[...Array(LastDate)].map((days, i) => {
+                      {[...Array(child.LastDate)].map((days, i) => {
                         return <div key={i}>{i + 1}</div>
                       })}
                     </div>
