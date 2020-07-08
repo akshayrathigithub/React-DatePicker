@@ -9,6 +9,7 @@ export default function Calendar() {
   const [selectedDate, setSelectedDate] = useState("")
   const [MonthsInfo, setMonthsInfo] = useState([])
   const [CurrentMonthInd, setCurrentMonthInd] = useState(new Date().getMonth() - 2)
+  const [MonthsList, setMonthsList] = useState(true)
   const Months = [
     "January",
     "February",
@@ -124,6 +125,18 @@ export default function Calendar() {
                   />
                 </div>
               </div>
+            </div>
+          ) : MonthsList ? (
+            <div className="YearsList">
+              {[...Array(201)].map((day, i) => {
+                return (
+                  <div key={i} className="Years">
+                    <div className="Year">
+                      <p>{1900 + i}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           ) : (
             <div className="BodyWrapper" onTransitionEnd={transitionChange}>
