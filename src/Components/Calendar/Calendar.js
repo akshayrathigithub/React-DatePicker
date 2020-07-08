@@ -34,8 +34,13 @@ export default function Calendar() {
       let StartingDay = todayDate.getDay()
       let MonthInd = todayDate.getMonth()
       let Year = todayDate.getFullYear()
-      console.log(LastDate, StartingDay, MonthInd, Year)
-      monthsinfo.push({ LastDate, StartingDay, MonthInd, Year })
+      let Active
+      if (new Date().getMonth() === MonthInd && new Date().getFullYear() === Year) {
+        Active = true
+      } else {
+        Active = false
+      }
+      monthsinfo.push({ LastDate, StartingDay, MonthInd, Year, Active })
     }
     setMonthsInfo([...monthsinfo])
     setCurrentMonthInd(Index)
@@ -84,6 +89,9 @@ export default function Calendar() {
       slider.style.transition = "transform 0.8s ease-in-out"
     })
   }
+  const Day = (e, Id) => {
+    console.log(e.target, Id)
+  }
   return (
     <div id="Calendar">
       <div className="ContentWrapper">
@@ -100,7 +108,7 @@ export default function Calendar() {
             </div>
           </div>
         </div>
-        <BodyDiv Height={EditWindow ? "16" : "70"} ref={Body}>
+        <BodyDiv Height={EditWindow ? "16" : "60"} ref={Body}>
           {EditWindow ? (
             <div className="ManualDate">
               <div className="ManualDateWrapper">
@@ -139,18 +147,31 @@ export default function Calendar() {
                       </div>
                     </div>
                     <div className="Body_Days">
-                      <div>Sun</div>
-                      <div>Mon</div>
-                      <div>Tue</div>
-                      <div>Wed</div>
-                      <div>Thu</div>
-                      <div>Fri</div>
-                      <div>Sat</div>
-                      {[...Array(child.StartingDay)].map((days, i) => {
-                        return <div key={i}></div>
+                      <div className="WeekDays">Sun</div>
+                      <div className="WeekDays">Mon</div>
+                      <div className="WeekDays">Tue</div>
+                      <div className="WeekDays">Wed</div>
+                      <div className="WeekDays">Thu</div>
+                      <div className="WeekDays">Fri</div>
+                      <div className="WeekDays">Sat</div>
+                      {[...Array(child.StartingDay)].map((day, i) => {
+                        return <div key={i} className="PrevMonthsDays"></div>
                       })}
-                      {[...Array(child.LastDate)].map((days, i) => {
-                        return <div key={i}>{i + 1}</div>
+                      {[...Array(child.LastDate)].map((day, i) => {
+                        return (
+                          <div key={i} className="dayWrapper">
+                            <div
+                              onClick={(e) => {
+                                Day(e, i + 1)
+                              }}
+                              className={
+                                child.Active && i === new Date().getDate() ? "day-active" : "day"
+                              }
+                            >
+                              <p>{i + 1}</p>
+                            </div>
+                          </div>
+                        )
                       })}
                     </div>
                   </div>

@@ -21,7 +21,7 @@
   background-color: #6200ee;
 }
 
-.ManualDate{
+.ManualDate {
   width: 100%;
   height: 100%;
   max-height: 8rem;
@@ -30,14 +30,14 @@
   justify-content: center;
   align-items: center;
 }
-.ManualDateWrapper{
+.ManualDateWrapper {
   background-color: #ededed;
   width: 100%;
   height: 100%;
   border-radius: 5px;
   border-bottom: solid 3.5px #6200ee;
 }
-#ManualDate_Label{
+#ManualDate_Label {
   width: 90%;
   height: 1rem;
   color: #6200ee;
@@ -46,12 +46,12 @@
   font-size: 15px;
   margin: 12px 0px 0px 20px;
 }
-#ManualDate_Input{
+#ManualDate_Input {
   width: 90%;
   height: 3rem;
   margin: 0px 0px 0px 20px;
 }
-#ManualDate_Input input{
+#ManualDate_Input input {
   border-style: none;
   width: 100%;
   height: 2rem;
@@ -59,7 +59,7 @@
   background-color: #ededed;
   font-family: Arial, Helvetica, sans-serif;
 }
-#ManualDate_Input input::placeholder{
+#ManualDate_Input input::placeholder {
   font-size: 18px;
 }
 .BodyWrapper {
@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: row;
 }
-.BodyChild{
+.BodyChild {
   width: 100%;
   height: 100%;
   position: relative;
@@ -115,13 +115,44 @@
   padding: 0.4rem;
 }
 
-.Body_Days div {
+.WeekDays {
   width: calc(100% / 7);
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.PrevMonthsDays {
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dayWrapper {
+  width: calc(100% / 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.day-active {
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #6200ee;
+  color: #fff;
+  cursor: pointer;
+}
+.day {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 .Footer {
   position: relative;
   width: 100%;
