@@ -1,238 +1,285 @@
-#Calendar {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  #Calendar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .ContentWrapper {
+    width: 50%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .Header {
+    width: 100%;
+    height: 22%;
+    background-color: #6200ee;
+  }
+
+  .ManualDate {
+    width: 100%;
+    height: 100%;
+    max-height: 8rem;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ManualDateWrapper {
+    background-color: #ededed;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border-bottom: solid 3.5px #6200ee;
+  }
+  #ManualDate_Label {
+    width: 90%;
+    height: 1rem;
+    color: #6200ee;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 12px 0px 0px 20px;
+  }
+  #ManualDate_Input {
+    width: 90%;
+    height: 3rem;
+    margin: 0px 0px 0px 20px;
+  }
+  #ManualDate_Input input {
+    border-style: none;
+    width: 100%;
+    height: 2rem;
+    font-size: 18px;
+    background-color: #ededed;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #ManualDate_Input input::placeholder {
+    font-size: 18px;
+  }
+  .BodyWrapper {
+    width: 500%;
+    height: 100%;
+    background-color: #f2f2f2;
+    position: absolute;
+    transform: translate3d(-40%, 0%, 0px);
+    transition: transform 0.8s ease-in-out;
+    display: flex;
+    flex-direction: row;
+  }
+  .YearsList {
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+    position: absolute;
+    transform: translate3d(0%, 0%, 0px);
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+  }
+  .Years {
+    width: calc(100% / 3);
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Year {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    cursor: pointer;
+  }
+  .Year-Active {
+    background-color: #6200ee;
+    color: #fff;
+  }
+  .BodyChild {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .Body_Header {
+    width: 100%;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+  }
+
+  .Body_Header_Date {
+    margin-left: 25px;
+    margin-right: 15px;
+  }
+
+  .Body_Header_DropDown {
+    font-size: 15px;
+    padding-top: 2px;
+    cursor: pointer;
+  }
+
+  .Body_Header_Left {
+    margin-left: 35%;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .Body_Header_Right {
+    margin-left: 40px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .Body_Days {
+    width: 100%;
+    height: 92%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.4rem;
+  }
+
+  .WeekDays {
+    width: calc(100% / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .PrevMonthsDays {
+    width: calc(100% / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .dayWrapper {
+    width: calc(100% / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .day {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .day-active {
+    background-color: #6200ee;
+    color: #fff;
+  }
+  .Footer {
+    position: relative;
+    width: 100%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .Footer_CancelBtn {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: #6200ee;
+    cursor: pointer;
+  }
+
+  .Footer_OkBtn {
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    color: #6200ee;
+    margin-right: 25px;
+    margin-left: 35px;
+    cursor: pointer;
+  }
+
+  #Header_Heading {
+    width: 100%;
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 15px 0px 0px 8%;
+    color: #f2f2f2;
+    font-weight: 600;
+  }
+
+  #Header_Footer {
+    width: 100%;
+    margin-top: 13%;
+    display: flex;
+    flex-direction: row;
+  }
+
+  #Header_Footer_Date {
+    font-size: 38px;
+    color: #fff;
+    margin-left: 8%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  #Header_Footer_Edit {
+    font-size: 30px;
+    color: #fff;
+    margin-left: 18%;
+    cursor: pointer;
+  }
 }
 
-.ContentWrapper {
-  width: 50%;
-  height: 85%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
 }
 
-.Header {
-  width: 100%;
-  height: 22%;
-  background-color: #6200ee;
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
 }
 
-.ManualDate {
-  width: 100%;
-  height: 100%;
-  max-height: 8rem;
-  padding: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ManualDateWrapper {
-  background-color: #ededed;
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  border-bottom: solid 3.5px #6200ee;
-}
-#ManualDate_Label {
-  width: 90%;
-  height: 1rem;
-  color: #6200ee;
-  font-weight: 500;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  margin: 12px 0px 0px 20px;
-}
-#ManualDate_Input {
-  width: 90%;
-  height: 3rem;
-  margin: 0px 0px 0px 20px;
-}
-#ManualDate_Input input {
-  border-style: none;
-  width: 100%;
-  height: 2rem;
-  font-size: 18px;
-  background-color: #ededed;
-  font-family: Arial, Helvetica, sans-serif;
-}
-#ManualDate_Input input::placeholder {
-  font-size: 18px;
-}
-.BodyWrapper {
-  width: 500%;
-  height: 100%;
-  background-color: #f2f2f2;
-  position: absolute;
-  transform: translate3d(-40%, 0%, 0px);
-  transition: transform 0.8s ease-in-out;
-  display: flex;
-  flex-direction: row;
-}
-.YearsList {
-  width: 100%;
-  height: 100%;
-  background-color: #f2f2f2;
-  position: absolute;
-  transform: translate3d(0%, 0%, 0px);
-  padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  overflow-y: auto;
-}
-.Years {
-  width: calc(100% / 3);
-  height: 3.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.Year {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 25px;
-  cursor: pointer;
-}
-.Year-Active {
-  background-color: #6200ee;
-  color: #fff;
-}
-.BodyChild {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-.Body_Header {
-  width: 100%;
-  height: 8%;
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 }
 
-.Body_Header_Date {
-  margin-left: 25px;
-  margin-right: 15px;
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
 }
 
-.Body_Header_DropDown {
-  font-size: 15px;
-  padding-top: 2px;
-  cursor: pointer;
-}
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
 
-.Body_Header_Left {
-  margin-left: 35%;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.Body_Header_Right {
-  margin-left: 40px;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.Body_Days {
-  width: 100%;
-  height: 92%;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0.4rem;
-}
-
-.WeekDays {
-  width: calc(100% / 7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.PrevMonthsDays {
-  width: calc(100% / 7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.dayWrapper {
-  width: calc(100% / 7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.day {
-  width: 90%;
-  height: 90%;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.day-active {
-  background-color: #6200ee;
-  color: #fff;
-}
-.Footer {
-  position: relative;
-  width: 100%;
-  height: 8%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.Footer_CancelBtn {
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  color: #6200ee;
-  cursor: pointer;
-}
-
-.Footer_OkBtn {
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  color: #6200ee;
-  margin-right: 25px;
-  margin-left: 35px;
-  cursor: pointer;
-}
-
-#Header_Heading {
-  width: 100%;
-  font-size: 11px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 15px 0px 0px 8%;
-  color: #f2f2f2;
-  font-weight: 600;
-}
-
-#Header_Footer {
-  width: 100%;
-  margin-top: 13%;
-  display: flex;
-  flex-direction: row;
-}
-
-#Header_Footer_Date {
-  font-size: 38px;
-  color: #fff;
-  margin-left: 8%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-#Header_Footer_Edit {
-  font-size: 30px;
-  color: #fff;
-  margin-left: 18%;
-  cursor: pointer;
+@media (min-width: 320px) and (max-width: 480px) {
 }
