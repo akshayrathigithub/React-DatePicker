@@ -491,7 +491,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .ContentWrapper {
-    width: 50%;
+    width: 60%;
     height: 90%;
     max-width: 550px;
     max-height: 750px;
@@ -948,7 +948,7 @@
   }
 
   #Header_Footer_Date {
-    font-size: 38px;
+    font-size: 30px;
     color: #fff;
     margin-left: 8%;
     font-family: Arial, Helvetica, sans-serif;
@@ -969,7 +969,7 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .ContentWrapper {
-    width: 50%;
+    width: 75%;
     height: 90%;
     max-width: 550px;
     max-height: 750px;
@@ -980,7 +980,7 @@
 
   .Header {
     width: 100%;
-    height: 22%;
+    height: 20%;
     background-color: #6200ee;
   }
 
@@ -1082,23 +1082,24 @@
   .Body_Header_Date {
     margin-left: 25px;
     margin-right: 15px;
+    font-size: 15px;
   }
 
   .Body_Header_DropDown {
-    font-size: 15px;
+    font-size: 12px;
     padding-top: 2px;
     cursor: pointer;
   }
 
   .Body_Header_Left {
-    margin-left: 35%;
-    font-size: 18px;
+    margin-left: 25%;
+    font-size: 15px;
     cursor: pointer;
   }
 
   .Body_Header_Right {
     margin-left: 40px;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
   }
 
@@ -1187,7 +1188,7 @@
   }
 
   #Header_Footer_Date {
-    font-size: 38px;
+    font-size: 28px;
     color: #fff;
     margin-left: 8%;
     font-family: Arial, Helvetica, sans-serif;
